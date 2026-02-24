@@ -15,6 +15,6 @@ public class OOPSBannerApp {
         System.out.println("*     *  *     *  *****    ***** ");
         System.out.println("*     *  *     *  *            * ");
         System.out.println("*     *  *     *  *            * ");
-        System.out.println(" *****    *****    *        ***** ");
+        System.out.println(" *****    *****   *        ***** ");
     }
 }
