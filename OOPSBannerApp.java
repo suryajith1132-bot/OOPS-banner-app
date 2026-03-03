@@ -1,7 +1,7 @@
 /**
  * OOPSBannerApp - UC6: Static Functions & Modularity
  * Encapsulates character patterns into reusable static methods.
- * @author Pranav
+ * @author Surya
  * @version 6.0
  */
 public class OOPSBannerApp {
