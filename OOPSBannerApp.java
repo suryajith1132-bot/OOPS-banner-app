@@ -1,44 +1,19 @@
-/**
- * OOPSBannerApp - UC3
- * Displays "OOPS" banner using String.join()
- *
- * @author Suryajith Nair
- * @version 3.0
- */
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        System.out.println(String.join("",
-                " ***** ", "  ",
-                " ***** ", "  ",
-                " ***** ", "  ",
-                " ***** "));
+        String[] banner = {
+                String.join("", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"),
+                String.join("", "*", " ", " ", " ", " ", " ", " ", " ", " ", "*"),
+                String.join("", "*", " ", "WELCOME", " ", "*"),
+                String.join("", "*", " ", "TO", " ", "*"),
+                String.join("", "*", " ", "UC5 BANNER", " ", "*"),
+                String.join("", "*", " ", " ", " ", " ", " ", " ", " ", " ", "*"),
+                String.join("", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*")
+        };
 
-        System.out.println(String.join("",
-                "*     *", "  ",
-                "*     *", "  ",
-                "*     *", "  ",
-                "*     "));
-
-        System.out.println(String.join("",
-                "*     *", "  ",
-                "*     *", "  ",
-                "*     *", "  ",
-                "*     "));
-
-        System.out.println(String.join("",
-                "*     *", "  ",
-                "*     *", "  ",
-                " ***** ", "  ",
-                " ***** "));
-
-        System.out.println(String.join("",
-                "*     *", "  ",
-                "*     *", "  ",
-                "*      ", "  ",
-                "     *"));
-
-        System.out.println(String.join("",
-                "
-
+        for (String line : banner) {
+            System.out.println(line);
+        }
+    }
+}
