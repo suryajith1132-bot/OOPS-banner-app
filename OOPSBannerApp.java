@@ -1,44 +1,45 @@
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * OOPSBannerApp - UC8: HashMap & Centralized Rendering
+ * Final iteration using Map for pattern lookup and StringBuilder for rendering.
+ * @author Pranav
+ * @version 8.0
+ */
 public class OOPSBannerApp {
 
-    // UC7: Dedicated class for character patterns
-    static class CharacterPattern {
-        private char character;
-        private String[] pattern;
+    // Centralized Pattern Registry using Map
+    private static final Map<Character, String[]> patternMap = new HashMap<>();
 
-        public CharacterPattern(char character, String[] pattern) {
-            this.character = character;
-            this.pattern = pattern;
-        }
-
-        public String getLine(int line) {
-            return (line >= 0 && line < pattern.length) ? pattern[line] : "";
-        }
+    static {
+        // Populating the Map with character-to-pattern mappings
+        patternMap.put('O', new String[]{"  *** ", " *   *", " *   *", " *   *", " *   *", " *   *", "  *** "});
+        patternMap.put('P', new String[]{" **** ", " *   *", " *   *", " **** ", " * ", " * ", " * "});
+        patternMap.put('S', new String[]{"  **** ", " * ", " * ", "  *** ", "        * ", "        * ", "    **** "});
     }
 
     public static void main(String[] args) {
-        // Initializing character patterns using the new class structure
-        CharacterPattern charO = new CharacterPattern('O', new String[]{
-            "  *** ", " *   *", " *   *", " *   *", " *   *", " *   *", "  *** "
-        });
+        String word = "OOPS";
+        renderBanner(word);
+    }
 
-        CharacterPattern charP = new CharacterPattern('P', new String[]{
-            " **** ", " *  *", " *  *", " **** ", " * ", " * ", " * "
-        });
+    /**
+     * Renders the banner horizontally using nested loops and StringBuilder
+     */
+    public static void renderBanner(String word) {
+        int height = 7; // Standard ASCII height for our patterns
 
-        CharacterPattern charS = new CharacterPattern('S', new String[]{
-            "  **** ", " * ", " * ", "  *** ", "        * ", "        * ", "    **** "
-        });
-
-        // Building the banner lines using the class getters
-        String[] bannerLines = new String[7];
-        for (int i = 0; i < 7; i++) {
-            bannerLines[i] = String.join("  ", 
-                charO.getLine(i), charO.getLine(i), charP.getLine(i), charS.getLine(i));
-        }
-
-        // Display the banner
-        for (String row : bannerLines) {
-            System.out.println(row);
+        for (int i = 0; i < height; i++) {
+            StringBuilder lineResult = new StringBuilder();
+            
+            for (char c : word.toCharArray()) {
+                String[] pattern = patternMap.get(c);
+                if (pattern != null) {
+                    lineResult.append(pattern[i]).append("  "); // Add spacing between letters
+                }
+            }
+            System.out.println(lineResult.toString());
         }
     }
 }
